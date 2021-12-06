@@ -19,4 +19,13 @@ app.get("/herois", function (req, res) {
     res.send(lista);
 });
 
+// [GET] "/herois/:id" Read Single - by Id (Ler individualmente - pelo Id)
+app.get("/herois/:id", function (req, res) {
+    const id = req.params.id - 1;
+
+    const item = lista[id];
+
+    res.send(item);
+});
+
 app.listen(3000);
