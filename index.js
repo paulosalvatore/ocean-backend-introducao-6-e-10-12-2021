@@ -72,6 +72,12 @@ app.put("/herois/:id", function (req, res) {
         return;
     }
 
+    if (!lista[id]) {
+        res.status(404).send("Não foi encontrado nenhum registro com esse ID.");
+
+        return;
+    }
+
     lista[id] = item;
 
     res.send("Registro atualizado com sucesso!");
