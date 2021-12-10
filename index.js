@@ -57,6 +57,15 @@ app.put("/herois/:id", function (req, res) {
 
     const item = req.body.nome;
 
+    if (!item) {
+        res.status(400).send(
+            "Falha ao criar o registro. 'Nome' não foi encontrado."
+        );
+
+        // Return encerra a chamada de uma função
+        return;
+    }
+
     lista[id] = item;
 
     res.send("Registro atualizado com sucesso!");
