@@ -42,4 +42,15 @@ app.post("/herois", function (req, res) {
     res.send("Registro criado com sucesso!");
 });
 
+// [PUT] "/herois/:id" Update (Atualizar)
+app.put("/herois/:id", function (req, res) {
+    const id = req.params.id - 1;
+
+    const item = req.body.nome;
+
+    lista[id] = item;
+
+    res.send("Registro atualizado com sucesso!");
+});
+
 app.listen(3000);
