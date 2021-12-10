@@ -87,6 +87,12 @@ app.put("/herois/:id", function (req, res) {
 app.delete("/herois/:id", function (req, res) {
     const id = req.params.id - 1;
 
+    if (!lista[id]) {
+        res.status(404).send("Não foi encontrado nenhum registro com esse ID.");
+
+        return;
+    }
+
     delete lista[id];
 
     res.send("Registro excluído com sucesso!");
