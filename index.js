@@ -53,4 +53,13 @@ app.put("/herois/:id", function (req, res) {
     res.send("Registro atualizado com sucesso!");
 });
 
+// [DELETE] "/herois/:id" Delete (Remover)
+app.delete("/herois/:id", function (req, res) {
+    const id = req.params.id - 1;
+
+    delete lista[id];
+
+    res.send("Registro excluído com sucesso!");
+});
+
 app.listen(3000);
