@@ -37,9 +37,18 @@ app.post("/herois", function (req, res) {
 
     const item = req.body.nome;
 
+    if (!item) {
+        res.status(400).send(
+            "Falha ao criar o registro. 'Nome' não foi encontrado."
+        );
+
+        // Return encerra a chamada de uma função
+        return;
+    }
+
     lista.push(item);
 
-    res.send("Registro criado com sucesso!");
+    res.status(201).send("Registro criado com sucesso!");
 });
 
 // [PUT] "/herois/:id" Update (Atualizar)
