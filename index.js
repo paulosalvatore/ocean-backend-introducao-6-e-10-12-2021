@@ -28,6 +28,12 @@ app.get("/herois/:id", function (req, res) {
 
     const item = lista[id];
 
+    if (!item) {
+        res.status(404).send("Não foi encontrado nenhum registro com esse ID.");
+
+        return;
+    }
+
     res.send(item);
 });
 
